@@ -81,7 +81,7 @@ const SP=[
 {id:23,e:'🦑',n:"Colossal squid",d:1700,f:"Its eyes, up to 27 cm wide, are the largest of any animal and spot whales in the dark."},
 {id:24,e:'🎏',n:"Tripod fish",d:4400,f:"It stands still on three long fins on the seafloor, facing the current to catch drifting prey."}];
 SP.sort((a,b)=>a.d-b.d);
-const PL={star:{e:'⭐',n:'Aquazoïd Nova',p:4.99,max:2500,spd:20,desc:'Down to 2,500 m'},jelly:{e:'🪼',n:'Aquazoïd Phantom',p:19.99,max:6000,spd:40,desc:'Down to 6,000 m'}};
+const PL={star:{e:'⭐',n:'Aquazoïd Nova',p:7.99,max:200,spd:5,desc:'Down to 200 m'},jelly:{e:'🪼',n:'Aquazoïd Phantom',p:19.99,max:6000,spd:40,desc:'Down to 6,000 m'}};
 let S={plan:null,depth:0,found:[],names:{},joy:{},tab:'bot',modal:null};
 const $=document.getElementById('app');
 function by(id){return SP.find(s=>s.id==id)}
@@ -94,7 +94,7 @@ function draw(){
  if(!S.plan){$.innerHTML=`<header><h1>🌊 Aquazoïdex</h1></header><main>
  <p class="mut" style="margin-bottom:14px">Follow your deep-sea robot and collect what it discovers. Choose your subscription.</p>
  ${Object.entries(PL).map(([k,p])=>`<div class="card plan"><i>${p.e}</i><div><b>${p.n}</b><div class="mut">${p.desc}</div></div><div class="price">$${p.p}<div class="mut">/month</div><button class="btn" style="padding:6px 12px;font-size:13px" onclick="sub('${k}')">Choose</button></div></div>`).join('')}
- <div class="card plan dis"><i>🐠</i><div><b>Aquazoïd Nemo</b></div><div class="price" style="color:var(--mut)">Coming soon<div class="mut">price TBD</div></div></div>
+ <div class="card plan dis"><i>🐠</i><div><b>Aquazoïd Nemo</b><div class="mut">Down to 800 m</div></div><div class="price" style="color:var(--mut)">Coming soon<div class="mut">price TBD</div></div></div>
  <p class="mut" style="text-align:center">Robots are sold to scientists and launched by our team.</p></main>`;return}
  const p=PL[S.plan];let body='';
  if(S.tab=='bot'){const pct=Math.round(S.depth/p.max*100);
